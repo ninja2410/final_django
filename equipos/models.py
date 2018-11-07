@@ -4,7 +4,6 @@ from django.contrib import admin
 
 
 class Jugador(models.Model):
-
     nombre  =   models.CharField(max_length=30)
     procedencia  =   models.CharField(max_length=50)
     dorsal  =   models.CharField(max_length=30)
@@ -28,7 +27,7 @@ class Equipo(models.Model):
 
 class Partido (models.Model):
     jugador = models.ForeignKey(Jugador, on_delete=models.CASCADE)
-    partido = models.ForeignKey(Partido, on_delete=models.CASCADE)
+    equipo = models.ForeignKey(Equipo, on_delete=models.CASCADE)
 
 
 class PartidoInLine(admin.TabularInline):
@@ -40,6 +39,6 @@ class JugadorAdmin(admin.ModelAdmin):
     inlines = (PartidoInLine,)
 
 
-class EquuipoAdmin (admin.ModelAdmin):
+class EquipoAdmin (admin.ModelAdmin):
 
     inlines = (PartidoInLine,)

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib import messages
 from .forms import EquipoForm
-from Equipos.models import Equipo, Partido
+from equipos.models import Equipo, Partido
 
 def Equipo_nueva(request):
     if request.method == "POST":
